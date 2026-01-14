@@ -89,7 +89,7 @@ export default function MiembrosPage() {
     if (!user?.token) return;
     try {
       setLoading(true);
-      const resMin = await fetch("https://portal.erg-backend.online/api/ministerios", { 
+      const resMin = await fetch("http://localhost:4000/api/ministerios", { 
         headers: { "Authorization": `Bearer ${user.token}` } 
       });
       
@@ -101,7 +101,7 @@ export default function MiembrosPage() {
         console.error("Error al cargar ministerios:", resMin.status);
       }
 
-      const resM = await fetch("https://portal.erg-backend.online/api/miembros-universal", { 
+      const resM = await fetch("http://localhost:4000/api/miembros-universal", { 
         headers: { "Authorization": `Bearer ${user.token}` } 
       });
       if (resM.ok) setMiembros(await resM.json());
@@ -156,7 +156,7 @@ const toggleMinisterio = (nombre: string, isEdit: boolean = false) => {
  const handleUpdate = async () => {
     if (!user?.token || !selectedMember) return;
     try {
-      const res = await fetch(`https://portal.erg-backend.online/api/miembros-universal/${selectedMember.id}`, {
+      const res = await fetch(`http://localhost:4000/api/miembros-universal/${selectedMember.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -218,7 +218,7 @@ const toggleMinisterio = (nombre: string, isEdit: boolean = false) => {
         ministeriosSeleccionados: ministeriosSeleccionados
       };
 
-      const res = await fetch("https://portal.erg-backend.online/api/miembros", {
+      const res = await fetch("http://localhost:4000/api/miembros", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -260,7 +260,7 @@ const toggleMinisterio = (nombre: string, isEdit: boolean = false) => {
   const confirmDelete = async () => {
     if (!user?.token || !selectedMember) return;
     try {
-      const res = await fetch(`https://portal.erg-backend.online/api/miembros/${selectedMember.id}`, {
+      const res = await fetch(`http://localhost:4000/api/miembros/${selectedMember.id}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${user.token}` },
       });
@@ -492,7 +492,7 @@ const toggleMinisterio = (nombre: string, isEdit: boolean = false) => {
                       )}
                     </div>
                     <div className="space-y-2">
-                    <Label className="font-bold text-accent">MINISTERIOS</Label>
+                    <Label className="text-muted-foreground text-sm">Ministerios</Label>
                     <div className="grid grid-cols-2 gap-3 min-h-[100px] max-h-60 overflow-y-auto border border-border rounded-lg p-4 bg-muted/20">
 
                       {editMode && userRole === "Administración" ? (

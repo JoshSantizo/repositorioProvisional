@@ -47,7 +47,7 @@ export default function DashboardSidebar() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <span className="font-semibold text-sidebar-foreground">Dashboard</span>
+          <span className="font-semibold text-sidebar-foreground">DASHBOARD</span>
         </div>
         <Button
           variant="ghost"
@@ -91,7 +91,7 @@ export default function DashboardSidebar() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <span className="font-semibold text-sidebar-foreground">Dashboard</span>
+                <span className="font-semibold text-sidebar-foreground">ERG</span>
               </div>
             )}
             <Button

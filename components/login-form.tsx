@@ -51,7 +51,7 @@ export default function LoginForm() {
         </div>
         <CardTitle className="text-2xl font-bold text-center text-foreground">Iniciar Sesión</CardTitle>
         <CardDescription className="text-center text-muted-foreground">
-          Sistema ERG - Acceso Real
+          Bienvenido al sistema ERG
         </CardDescription>
       </CardHeader>
       <form onSubmit={handleSubmit}>

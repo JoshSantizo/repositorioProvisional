@@ -120,6 +120,86 @@ export default function ConfiguracionesPage() {
         </Card>
       )}
 
+      <Card className="border-border">
+        <CardHeader>
+          <CardTitle className="text-foreground">Contáctanos</CardTitle>
+          <CardDescription className="text-muted-foreground">
+            Si deseas contactarte con el departamento de la visión o reportar algún problema con la plataforma, puedes
+            comunicarte con nosotros
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {/* Contact Information */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide">Contactos</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-secondary/50 p-4 rounded-lg border border-border">
+                <p className="text-sm font-semibold text-foreground mb-1">Departamento de la Visión</p>
+                <p className="text-lg font-bold text-accent">7760-5126</p>
+              </div>
+              <div className="bg-secondary/50 p-4 rounded-lg border border-border">
+                <p className="text-sm font-semibold text-foreground mb-1">Pastora Briana de León</p>
+                <p className="text-lg font-bold text-accent">4133-8946</p>
+              </div>
+              <div className="bg-secondary/50 p-4 rounded-lg border border-border">
+                <p className="text-sm font-semibold text-foreground mb-1">Diácono Josué Santizo</p>
+                <p className="text-lg font-bold text-accent">4262-2810</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bank Account Information */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+              Cuentas Bancarias para Ofrendas
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-secondary/50 p-4 rounded-lg border border-border">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 bg-blue-600 rounded flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+                      <path
+                        fillRule="evenodd"
+                        d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">BANRURAL</p>
+                    <p className="text-sm font-semibold text-foreground">Cuenta Monetaria</p>
+                  </div>
+                </div>
+                <p className="text-lg font-mono font-bold text-accent">36790 14925</p>
+                <p className="text-xs text-muted-foreground mt-1">A nombre de: Iglesia El Rey de Gloria</p>
+              </div>
+
+              <div className="bg-secondary/50 p-4 rounded-lg border border-border">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 bg-red-600 rounded flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+                      <path
+                        fillRule="evenodd"
+                        d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground">INTERBANCO</p>
+                    <p className="text-sm font-semibold text-foreground">Cuenta Monetaria</p>
+                  </div>
+                </div>
+                <p className="text-lg font-mono font-bold text-accent">81002 08069</p>
+                <p className="text-xs text-muted-foreground mt-1">A nombre de: Iglesia El Rey de Gloria</p>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Selector de Temas */}
       <Card className="border-border">
         <CardHeader>
