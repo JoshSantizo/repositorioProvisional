@@ -2,8 +2,8 @@
 const IS_PRODUCTION = false; 
 
 export const API_BASE_URL = IS_PRODUCTION 
-  ? "http://localhost:4000/api" 
-  : "http://localhost:4000/api";
+  ? "https://portal.erg-backend.online/api" 
+  : "https://portal.erg-backend.online/api";
 
 export const ENDPOINTS = {
   login: `${API_BASE_URL}/auth/login`,
