@@ -214,7 +214,9 @@ const toggleMinisterio = (nombre: string, isEdit: boolean = false) => {
         referencia: newMember.referencia,
         sexo: newMember.sexo.charAt(0).toUpperCase(), 
         fecha_nacimiento: newMember.fechaNacimiento,
-        fecha_conversion: newMember.fechaConversion || new Date().toISOString().split('T')[0],
+        fecha_conversion: newMember.fechaConversion || null,
+        fecha_bautizo: newMember.fechaBautizo || null,
+        fecha_boda: newMember.fechaBoda || null,
         ministeriosSeleccionados: ministeriosSeleccionados
       };
 
@@ -375,6 +377,9 @@ const toggleMinisterio = (nombre: string, isEdit: boolean = false) => {
 
       {/* TABLA PRINCIPAL */}
       <Card>
+        <CardHeader>
+              <CardTitle className="text-foreground">Lista de Miembros</CardTitle>
+            </CardHeader>
         <CardContent className="p-0">
           <table className="w-full text-sm">
             <thead className="bg-muted/50 border-b">
@@ -460,7 +465,7 @@ const toggleMinisterio = (nombre: string, isEdit: boolean = false) => {
                         <Label className="text-muted-foreground text-sm">Fecha de Conversión</Label>
                         {editMode && esAdmin ? <Input type="date" value={editFechaConversion} onChange={e => setEditFechaConversion(e.target.value)} className="mt-1" /> : <p className="font-medium">{new Date(selectedMember.fechaConversion).toLocaleDateString("es-GT")}</p>}
                     </div>
-                    {/* Busca el div de Fecha de Conversión en el Details Dialog e inserta esto después: */}
+
                     <div>
                       <Label className="text-muted-foreground text-sm">Fecha de Bautizo</Label>
                       {editMode && esAdmin ? (
@@ -491,41 +496,42 @@ const toggleMinisterio = (nombre: string, isEdit: boolean = false) => {
                         </p>
                       )}
                     </div>
-                    <div className="space-y-2">
-                    <Label className="text-muted-foreground text-sm">Ministerios</Label>
-                    <div className="grid grid-cols-2 gap-3 min-h-[100px] max-h-60 overflow-y-auto border border-border rounded-lg p-4 bg-muted/20">
 
-                      {editMode && userRole === "Administración" ? (
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-2">
-                          {ministeriosLista.map((min) => (
-                          <div key={min.id} className="flex items-center space-x-2 p-1">
-                              <Checkbox
-                                id={`edit-ministerio-${min}`}
-                                checked={newMember.ministerios.includes(min.nombre)}
-                              onCheckedChange={() => toggleMinisterio(min.nombre, false)}
-                              />
-                              <label
-                                htmlFor={`edit-ministerio-${min}`}
-                                className="text-sm text-foreground cursor-pointer"
-                              >
-                                {min.nombre}
-                              </label>
+                    <div className="space-y-2">
+                    <div className="md:col-span-2">
+                          <Label className="text-muted-foreground text-sm">Ministerios</Label>
+                          {editMode && userRole === "Administración" ? (
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-2">
+                              {ministeriosLista.map((min) => (
+                                <div key={min.id} className="flex items-center space-x-2">
+                                  <Checkbox
+                                    id={`edit-ministerio-${min}`}
+                                    checked={editMinisterios.includes(min.nombre)}
+                                    onCheckedChange={() => toggleMinisterio(min.nombre, false)}
+                                  />
+                                  <label
+                                    htmlFor={`edit-ministerio-${min}`}
+                                    className="text-sm text-foreground cursor-pointer"
+                                  >
+                                    {min.nombre}
+                                  </label>
+                                </div>
+                              ))}
                             </div>
-                          ))}
+                          ) : (
+                            <div className="flex flex-wrap gap-2 mt-1">
+                              {selectedMember.ministerios.map((ministerio, idx) => (
+                                <span
+                                  key={idx}
+                                  className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium"
+                                >
+                                  {ministerio}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                      ) : (
-                        <div className="flex flex-wrap gap-2 mt-1">
-                          {selectedMember.ministerios.map((ministerio, idx) => (
-                            <span
-                              key={idx}
-                              className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium"
-                            >
-                              {ministerio}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+
                   </div>
                   </div>
                 </CardContent>
