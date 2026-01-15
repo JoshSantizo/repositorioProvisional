@@ -376,19 +376,21 @@ const toggleMinisterio = (nombre: string, isEdit: boolean = false) => {
       </div>
 
       {/* TABLA PRINCIPAL */}
-      <Card>
+      <Card className="border-border mt-6">
         <CardHeader>
               <CardTitle className="text-foreground">Lista de Miembros</CardTitle>
             </CardHeader>
-        <CardContent className="p-0">
-          <table className="w-full text-sm">
-            <thead className="bg-muted/50 border-b">
-              <tr>
-                <th className="p-4 text-left font-bold uppercase">Nombre</th>
-                <th className="p-4 text-left font-bold uppercase">Fecha de Nacimiento</th>
-                <th className="p-4 text-right font-bold uppercase">Acciones</th>
-              </tr>
-            </thead>
+        <CardContent>
+          <div className="min-h-[600px]">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr>
+                    <th className="text-left py-3 px-4 text-foreground font-semibold">Nombre</th>
+                    <th className="text-left py-3 px-4 text-foreground font-semibold">Fecha de Nacimiento</th>
+                    <th className="text-left py-3 px-4 text-foreground font-semibold">Detalles</th>
+                  </tr>
+                </thead>
             <tbody>
               {loading ? (
                 <tr><td colSpan={3} className="p-10 text-center font-bold">Cargando registros...</td></tr>
@@ -402,7 +404,11 @@ const toggleMinisterio = (nombre: string, isEdit: boolean = false) => {
                 </tr>
               ))}
             </tbody>
+
+            
           </table>
+          </div>
+          </div>
         </CardContent>
       </Card>
 
